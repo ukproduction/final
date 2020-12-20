@@ -1,0 +1,311 @@
+﻿@{
+    ViewBag.Title = "Sign up";
+    //Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/js/Loginimages/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/js/Login/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/js/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/js/Login/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/js/Login/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/js/Login/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/js/Login/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/js/Login/css/main.css">
+    <!--===============================================================================================-->
+    <style>
+        .body {
+            background-color: gray;
+            background-image: url('../../images/Login, sighup image.png');
+            background-repeat: no-repeat;
+            background-size: 100% 108%;
+        }
+    </style>
+</head>
+
+<body class="body" style="background-color:orangered;">
+   
+    <div class="limiter">
+        <div class="container-login1000" style="margin:60px 50px 50px 250px">
+            <div class="container">
+                @if (TempData["Success"] != null)
+                {
+                    <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+                }
+            </div>
+
+            <div class="wrap-login100">
+
+                <div class="login100-pic js-tilt" data-tilt style="margin-top:0px;">
+                    <img src="~/images/img-03.jpg" style="height:300px;width:600px;" />
+
+                </div>
+                @using (Html.BeginForm("Signup", "Signup", FormMethod.Post, new { @class = "login100-form validate-form", enctype = "multipart/form-data" }))
+                {
+
+                        <span class="login100-form-title">
+                            Sign Up
+                        </span>
+                        <div class="wrap-input100 validate-input" data-validate="Username is required">
+
+                            <input placeholder="Name" type="text" name="Name" id="username" class="input100" required>
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" data-validate="Username is required">
+                            <input placeholder="Username" type="text" name="Username" id="username" class="input100" required>
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" requied>
+                            <select id="Role" Name="Role" class="input100">
+                                <option value="Buyer">Buyer</option>
+                                <option value="Seller">Seller</option>
+                                <option value="Servicer">Servicer</option>
+                            </select>
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-tasks" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate="Password is required">
+                            <input name="password" id="password" type="password"placeholder="password"class="input100" onkeyup='check();' />
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                            </span>
+                        </div><div class="wrap-input100 validate-input" data-validate="Password is required">
+                            <input type="password" name="confirm_password" placeholder="confirm_password" id="confirm_password" class="input100" onkeyup='check();' />
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                            </span>
+                        </div><div class="wrap-input100 validate-input" data-validate="required">
+                            <input placeholder="##########" type="text" name="Mobile" id="phone" class="input100" required>
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <input id="BrowseImage" type="file" name="ImageFile" required>
+                      
+
+
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn" style="background-color:orangered;">
+                                Sign Up
+                            </button>
+                        </div><br />
+                        <span class="alert-danger">
+                            @ViewBag.exm
+                        </span>
+
+
+                }
+                </div>
+        </div>
+    </div>
+
+
+
+
+    <!--===============================================================================================-->
+
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/js/Login/js/main.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<main>*@
+
+            <script type="text/javascript">
+                var check = function () {
+                    if (document.getElementById('password').value ==
+                        document.getElementById('confirm_password').value) {
+                        document.getElementById('message').style.color = 'mediumseagreen';
+                        document.getElementById('message').innerHTML = 'Password Match';
+                    } else {
+                        document.getElementById('message').style.color = 'red';
+                        document.getElementById('message').innerHTML = 'Not matching';
+                    }
+                }
+            </script>
+
+            @*<link href="~/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+        <style>        body{
+                background-color:whitesmoke;
+                color:black;
+            }
+        </style>
+
+            <form class="form-detail" action="#" method="post" id="myform" style="margin-top:220px;">
+                <div class="row">
+                    <div class="col-lg-3 offset-3">
+                        <label for="username">Name</label>
+                        <div class="input-group">
+
+                            <span class="input-group-addon">
+                                <i class="fas fa-bars" style="margin:0px;padding:11px;background-color:crimson;color:white;"> </i>
+                            </span>
+                            <input placeholder="Name" type="text" name="Name" id="username" class="form-control" required>
+                        </div>
+                        <label for="username">USERNAME</label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-addon">
+                                <i class="fas fa-user" style="margin:0px;padding:11px;background-color:crimson;color:white;"> </i>
+                            </span>
+                            <input placeholder="Username" type="text" name="Username" id="username" class="form-control" required>
+                        </div>
+                        <label for="username">Email</label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-addon">
+                                <i class="fas fa-envelope" style="margin:0px;padding:11px;background-color:crimson;color:white;"> </i>
+                            </span>
+                            <input id="mail" placeholder="info@gmail.com" type="email" name="Email" class="form-control" required>
+                        </div>
+                        <label for="username">Phone</label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-addon">
+                                <i class="fas fa-phone" style="margin:0px;padding:11px;background-color:crimson;color:white;"> </i>
+                            </span>
+                            <input placeholder="##########" type="text" name="Mobile" id="phone" class="form-control" required>
+                        </div>
+                        <label for="username">Your Role</label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-addon">
+                                <i class="fas fa-tasks" style="margin:0px;padding:11px;background-color:crimson;color:white;"> </i>
+                            </span>
+                            <select id="Role" Name="Role" class="form-control">
+                                <option value="Servicer">Servicer</option>
+                                <option value="Seller">Seller</option>
+                                <option value="Buyer">Buyer</option>
+                                <option value="Landowner">Landowner</option>
+                            </select>
+                        </div>
+                        <label for="username">Gender</label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-addon">
+                                <i class="fas fa-male" style="margin:0px;padding:11px;background-color:crimson;color:white;"> </i>
+                            </span>
+                            <select id="Role" Name="Gender" class="form-control">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+
+                            </select>
+                        </div>
+                        <br />
+                        <div class="form-row">
+                            <input type="submit" class="btn btn-success" name="register" value="Register">
+
+                        </div>
+
+                    </div>
+                    <div class="col-lg-3">
+                        <label for="username">Address</label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-addon">
+                                <i class="fas fa-address-card" style="margin:0px;padding:11px;background-color:crimson;color:white;"> </i>
+                            </span>
+                            <input type="text" name="Address" id="address" class="form-control" required maxlength="30">
+                        </div>
+                        <label for="username">Company</label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-addon">
+                                <i class="fas fa-bars" style="margin:0px;padding:11px;background-color:crimson;color:white;"> </i>
+                            </span>
+                            <input type="text" name="company" id="address" class="form-control" required maxlength="30">
+                        </div>
+                        <label for="username">Bio Detail</label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-addon">
+                                <i class="fas fa-file" style="margin:0px;padding:11px;background-color:crimson;color:white;"> </i>
+                            </span>
+                            <input type="text" name="Bio" id="bio" class="form-control" required maxlength="40">
+                        </div>
+                        <label for="username">Password</label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-addon">
+                                <i class="fas fa-key" style="margin:0px;padding:11px;background-color:crimson;color:white;"> </i>
+                            </span>
+                            <input name="password" id="password" type="password" class="form-control" onkeyup='check();' />
+                        </div>
+                        <label for="username">Confirm Password</label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-addon">
+                                <i class="fas fa-key" style="margin:0px;padding:11px;background-color:crimson;color:white;"> </i>
+                            </span>
+                            <input type="password" name="confirm_password" id="confirm_password" class="form-control" onkeyup='check();' />
+                            <br />
+                            <span id='message'></span>
+                        </div>
+                        <div class="form-row">
+                            <br />  <br />
+                            <input id="BrowseImage" type="file" name="ImageFile" required>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+
+
+
+    </main>*@

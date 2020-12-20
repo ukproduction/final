@@ -1,0 +1,76 @@
+﻿
+@model Hombay.User_Bidding
+
+
+
+@{
+    ViewBag.Title = "Project_Progres";
+    Layout = "~/Views/_LayoutPageServicer.cshtml";
+}
+
+<script>
+    $("#btn30").click(function () {
+
+        document.getElementById("Progress").value = "30";
+    });
+
+    $("#btn50").click(function () {
+
+        document.getElementById("Progress").value = "50";
+    });
+    $("#btn100").click(function () {
+
+        document.getElementById("Progress").value = "100";
+    });
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<div class="row">
+    @using (Html.BeginForm("Project_Progres", "Servicer", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+    {
+
+    <div class="col-lg-6 offset-4" style="padding-top:50px;">
+
+        @if (ViewBag.Success != null && ViewBag.Success)
+        {
+            <div class="alert alert-success">
+                <strong>Success!</strong> Request is been Completed...
+            </div>
+        }
+
+
+
+    <div class="Hide" style="display:none;">
+        <img src="@Url.Content(Model.Image)" style="width:50px;height:50px;" />
+          @{TempData["Data1"] = @Url.Content(Model.Image); }
+        <input id="Üser_id" type="text" class="form-control" name="User_Id" value="@Model.User_Id" />
+        <input id="Name" type="text" class="form-control" name="Project_name" value="@Model.Item_Name" />
+        <input id="Name" type="text" class="form-control" name="Servicer_id" value="@Session["UserID"]" />
+    </div>
+        <h2>Project Progress</h2>
+
+
+        <progress id="Progress" name="Progress" max="100" style="padding:25px;width:900px;">50</progress>
+
+
+        <select name="Progress">
+            <option value="0">Started</option>
+            <option value="30">30%</option>
+            <option value="50">50%</option>
+            <option value="80">80%</option>
+            <option value="100">Completed</option>
+        </select>
+
+    </div>
+        <div class="col-lg-8 offset-4">
+
+            <label>Write something about work</label><br />
+            <textarea id="area" name="" style="width:700px;height:250px;"></textarea><br />
+           
+            <button class="btn btn-primary" id="Submit" type="submit">Submit</button>
+            <br /><br />
+          
+        </div>
+        <br />
+    }
+</div>

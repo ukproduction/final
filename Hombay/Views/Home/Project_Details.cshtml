@@ -1,0 +1,41 @@
+﻿@model IPagedList<Hombay.tbl_proprogress>
+@{
+    ViewBag.Title = "Project_Details";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+@using PagedList.Mvc;
+@using PagedList;
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+
+<link href="~/content/PagedList.css" rel="stylesheet" />
+
+<div class="row">
+    <div class="col-md-12" style="margin-top:200px;">
+        <div class="white-box">
+            <h3 class="box-title"></h3>
+
+            <div class="container">
+
+
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-3" style="padding:10px;text-align:center;border-color:lightgray;border:1px solid lightgray;margin:0px;">
+
+                            <img src="@Url.Content(item.Image)" style="width:280px;height:250px;" />
+                            <h5></h5>
+                            <h5></h5>
+                            <h5 style="align-content:center;"> @Html.DisplayFor(modelItem => item.Project_name)</h5>
+
+                            <h5 style="align-content:center;">@Html.DisplayFor(modelItem => item.Progress)% <br /> <progress id="Progress" name="Progress" value=" @Html.DisplayFor(modelItem => item.Progress)" max="100"></progress></h5>
+
+                        </div>
+                    }
+                </div>
+
+                @Html.PagedListPager(Model, i => Url.Action("Project_Detail", "Account", new { i, search = Request.QueryString["search"] }))
+            </div>
+        </div>
+    </div>
+</div>

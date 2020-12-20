@@ -1,0 +1,134 @@
+﻿@model IPagedList<Hombay.tbl_Rating>
+@{
+    ViewBag.Title = "My_Purchase";
+    Layout = "~/Views/_LayoutPageAdmin.cshtml";
+}
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @ViewBag.LoginUsername
+
+    @using PagedList.Mvc;
+    @using PagedList;
+</head>
+<body>
+    <div class="page-wrapper" style="min-height: 250px;">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb bg-white">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title text-uppercase font-medium font-14">List</h4>
+                </div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <div class="d-md-flex">
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="white-box">
+                        <h3 class="box-title">Search List</h3>
+
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Item_Name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().User_id)
+                                </th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Date)
+                                </th>
+
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Price)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Rating)
+                                </th>
+
+                                <th>Action</th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Item_Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.User_id)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Date)
+                                    </td>
+
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Price)
+                                    </td>
+                                    <td>
+
+
+
+                                        @for (int i = 0; i < item.Rating; i++)
+                                        {
+
+                                            <i class="fa fa-star" aria-hidden="true" style="color:orange;"></i>
+                                        }
+                                    </td>
+
+                                    <td>
+
+                                       
+                                        <button class="btn btn-danger">  @Html.ActionLink("Delete", "DeleteReview", new { id = item.Id }, new { @class = "link" })</button>
+                                        <style>
+                                            a.link {
+                                                color: White;
+                                            }
+
+                                                a.link:hover {
+                                                    color: White;
+                                                }
+                                        </style>
+
+
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

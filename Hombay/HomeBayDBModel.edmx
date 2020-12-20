@@ -1,0 +1,819 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HomeBeyDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_cart_item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_id" Type="int" />
+          <Property Name="Item_title" Type="nvarchar(max)" />
+          <Property Name="Item_price" Type="nvarchar" MaxLength="250" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="user_id" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_Chat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sender_id" Type="int" />
+          <Property Name="Time" Type="datetime" />
+          <Property Name="Sender" Type="nvarchar" MaxLength="250" />
+          <Property Name="Sender_user" Type="nvarchar" MaxLength="250" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="Receiver_id" Type="int" />
+          <Property Name="Receiver_user" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="tbl_Complaints">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_id" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="250" />
+          <Property Name="Message" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_id" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Subject" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Message" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Item_title" Type="nvarchar" MaxLength="250" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="250" />
+          <Property Name="Category" Type="nvarchar" MaxLength="250" />
+          <Property Name="Quantity" Type="nvarchar" MaxLength="250" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
+          <Property Name="Date" Type="nvarchar" MaxLength="50" />
+          <Property Name="Item_price" Type="nvarchar" MaxLength="50" />
+          <Property Name="Company" Type="nvarchar" MaxLength="250" />
+          <Property Name="User_id" Type="int" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="Bid_amount" Type="nvarchar" MaxLength="50" />
+          <Property Name="Rating" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_new_construction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="nvarchar" MaxLength="250" />
+          <Property Name="Dimension" Type="nvarchar" MaxLength="250" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="User_id" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Number" Type="nvarchar" MaxLength="250" />
+          <Property Name="Item_Userid" Type="int" />
+          <Property Name="User_id" Type="int" />
+          <Property Name="Product_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Product_price" Type="nvarchar" MaxLength="250" />
+          <Property Name="Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_proprogress">
+          <Key>
+            <PropertyRef Name="Pro_id" />
+          </Key>
+          <Property Name="Pro_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_id" Type="int" />
+          <Property Name="Project_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Progress" Type="int" />
+          <Property Name="Servicer_id" Type="int" />
+          <Property Name="Image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_Rating">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_id" Type="int" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Item_Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Item_id" Type="int" />
+          <Property Name="Price" Type="nvarchar" MaxLength="250" />
+          <Property Name="Rating" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Review">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_id" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="250" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
+          <Property Name="CNIC" Type="nvarchar" MaxLength="250" />
+          <Property Name="Message" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Username" Type="nvarchar" MaxLength="250" />
+          <Property Name="Password" Type="nvarchar" MaxLength="250" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="250" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Organization" Type="nvarchar" MaxLength="250" />
+          <Property Name="Bio" Type="nvarchar" MaxLength="250" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="User_Bidding">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Id" Type="int" />
+          <Property Name="Item_Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Date_from" Type="date" />
+          <Property Name="Date_to" Type="date" />
+          <Property Name="price" Type="nvarchar" MaxLength="50" />
+          <Property Name="Bid_amount" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Buyer_Id" Type="int" />
+          <Property Name="Item_Id" Type="nvarchar" MaxLength="50" />
+          <Property Name="Approve" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image" Type="nvarchar(max)" />
+        </EntityType>
+        <Function Name="sp_AddContructionAddBid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_BuyerAccBid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_BuyerBid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_getrecentscreenshots" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="startId" Type="int" Mode="In" />
+          <Parameter Name="endId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_gettotalbidding" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_gettotalBuyer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_gettotalcomplaint" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_gettotalconstruction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_gettotalItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_gettotallandowner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_gettotalSeller" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_gettotalservicer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_gettotaluser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_landownerConscount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_landownerquansum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_livechat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="User1" Type="nvarchar" Mode="In" />
+          <Parameter Name="User2" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_Myprojects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_MypurchaseItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_paidItemprice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_SellerItemcount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_SellerItemprice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_Userchats" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name1" Type="nvarchar" Mode="In" />
+          <Parameter Name="name2" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_Usercomplaints" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_UserQuery" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_UserReviews" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="HomeBeyDBModelStoreContainer">
+          <EntitySet Name="tbl_cart_item" EntityType="Self.tbl_cart_item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Category" EntityType="Self.tbl_Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Chat" EntityType="Self.tbl_Chat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Complaints" EntityType="Self.tbl_Complaints" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_contact" EntityType="Self.tbl_contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_items" EntityType="Self.tbl_items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_new_construction" EntityType="Self.tbl_new_construction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Order" EntityType="Self.tbl_Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_proprogress" EntityType="Self.tbl_proprogress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Rating" EntityType="Self.tbl_Rating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Review" EntityType="Self.tbl_Review" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_users" EntityType="Self.tbl_users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Bidding" EntityType="Self.User_Bidding" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HomeBeyDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Item_title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Item_price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="User_id" Type="Int32" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Bid_amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Rating" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Organization" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Bio" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Review">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CNIC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="User_id" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="HomeBeyDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Category" EntityType="Self.tbl_Category" />
+          <EntitySet Name="tbl_items" EntityType="Self.tbl_items" />
+          <EntitySet Name="tbl_users" EntityType="Self.tbl_users" />
+          <EntitySet Name="tbl_Review" EntityType="Self.tbl_Review" />
+          <EntitySet Name="tbl_new_construction" EntityType="HomeBeyDBModel.tbl_new_construction" />
+          <FunctionImport Name="sp_gettotaluser" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_gettotalBuyer" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_gettotallandowner" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_gettotalSeller" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_gettotalservicer" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_gettotalbidding" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_gettotalcomplaint" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_gettotalItem" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_gettotalconstruction" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_Usercomplaints" ReturnType="Collection(Int32)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UserQuery" ReturnType="Collection(Int32)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UserReviews" ReturnType="Collection(Int32)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_landownerConscount" ReturnType="Collection(Int32)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_landownerquansum" ReturnType="Collection(Int32)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_SellerItemcount" ReturnType="Collection(Int32)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_SellerItemprice" ReturnType="Collection(Int32)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_getrecentscreenshots" ReturnType="Collection(HomeBeyDBModel.sp_getrecentscreenshots_Result)">
+            <Parameter Name="startId" Mode="In" Type="Int32" />
+            <Parameter Name="endId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_BuyerAccBid" ReturnType="Collection(Int32)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_BuyerBid">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tbl_Rating" EntityType="HomeBeyDBModel.tbl_Rating" />
+          <FunctionImport Name="sp_livechat" ReturnType="Collection(HomeBeyDBModel.sp_livechat_Result)">
+            <Parameter Name="User1" Mode="In" Type="String" />
+            <Parameter Name="User2" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tbl_contact" EntityType="HomeBeyDBModel.tbl_contact" />
+          <EntitySet Name="tbl_Complaints" EntityType="HomeBeyDBModel.tbl_Complaints" />
+          <EntitySet Name="tbl_Chat" EntityType="HomeBeyDBModel.tbl_Chat" />
+          <EntitySet Name="tbl_proprogress" EntityType="HomeBeyDBModel.tbl_proprogress" />
+          <EntitySet Name="tbl_Order" EntityType="HomeBeyDBModel.tbl_Order" />
+          <EntitySet Name="User_Bidding" EntityType="HomeBeyDBModel.User_Bidding" />
+          <FunctionImport Name="sp_AddContructionAddBid" ReturnType="Collection(Int32)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MypurchaseItem" ReturnType="Collection(Int32)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Myprojects" ReturnType="Collection(Int32)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tbl_cart_item" EntityType="HomeBeyDBModel.tbl_cart_item" />
+          <FunctionImport Name="sp_paidItemprice" ReturnType="Collection(Int32)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Userchats" ReturnType="Collection(HomeBeyDBModel.sp_Userchats_Result)">
+            <Parameter Name="name1" Mode="In" Type="String" />
+            <Parameter Name="name2" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="tbl_new_construction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Dimension" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="User_id" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="sp_getrecentscreenshots_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Item_title" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Mobile" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Quantity" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Date" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Item_price" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Company" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="User_id" Nullable="true" />
+          <Property Type="String" Name="Image" Nullable="true" />
+          <Property Type="String" Name="Bid_amount" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="tbl_Rating">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_id" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Item_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Item_id" Type="Int32" />
+          <Property Name="Rating" Type="Int32" />
+          <Property Name="Price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="sp_livechat_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="User_id" Nullable="true" />
+          <Property Type="DateTime" Name="Time" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Username" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Message" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="tbl_contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_id" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Complaints">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_id" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Chat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sender_id" Type="Int32" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
+          <Property Name="Sender_user" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Receiver_id" Type="Int32" />
+          <Property Name="Receiver_user" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Sender" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_proprogress">
+          <Key>
+            <PropertyRef Name="Pro_id" />
+          </Key>
+          <Property Name="Pro_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_id" Type="Int32" />
+          <Property Name="Project_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Progress" Type="Int32" />
+          <Property Name="Servicer_id" Type="Int32" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Number" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Item_Userid" Type="Int32" />
+          <Property Name="User_id" Type="Int32" />
+          <Property Name="Product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Product_price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="User_Bidding">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Id" Type="Int32" />
+          <Property Name="Item_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Date_from" Type="DateTime" Precision="0" />
+          <Property Name="Date_to" Type="DateTime" Precision="0" />
+          <Property Name="price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Bid_amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Item_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Approve" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Buyer_Id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_cart_item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_id" Type="Int32" />
+          <Property Name="Item_title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Item_price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="user_id" Type="Int32" />
+        </EntityType>
+        <ComplexType Name="sp_Userchats_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="Sender_id" Nullable="true" />
+          <Property Type="DateTime" Name="Time" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Sender_user" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Message" Nullable="true" />
+          <Property Type="Int32" Name="Receiver_id" Nullable="true" />
+          <Property Type="String" Name="Receiver_user" Nullable="true" MaxLength="250" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HomeBeyDBModelStoreContainer" CdmEntityContainer="HomeBeyDBEntities">
+          <EntitySetMapping Name="tbl_Category">
+            <EntityTypeMapping TypeName="HomeBeyDBModel.tbl_Category">
+              <MappingFragment StoreEntitySet="tbl_Category">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_items">
+            <EntityTypeMapping TypeName="HomeBeyDBModel.tbl_items">
+              <MappingFragment StoreEntitySet="tbl_items">
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Bid_amount" ColumnName="Bid_amount" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Item_title" ColumnName="Item_title" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Item_price" ColumnName="Item_price" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_users">
+            <EntityTypeMapping TypeName="HomeBeyDBModel.tbl_users">
+              <MappingFragment StoreEntitySet="tbl_users">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Organization" ColumnName="Organization" />
+                <ScalarProperty Name="Bio" ColumnName="Bio" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Review">
+            <EntityTypeMapping TypeName="HomeBeyDBModel.tbl_Review">
+              <MappingFragment StoreEntitySet="tbl_Review">
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_new_construction">
+            <EntityTypeMapping TypeName="HomeBeyDBModel.tbl_new_construction">
+              <MappingFragment StoreEntitySet="tbl_new_construction">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Dimension" ColumnName="Dimension" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_gettotaluser" FunctionName="HomeBeyDBModel.Store.sp_gettotaluser" />
+          <FunctionImportMapping FunctionImportName="sp_gettotalBuyer" FunctionName="HomeBeyDBModel.Store.sp_gettotalBuyer" />
+          <FunctionImportMapping FunctionImportName="sp_gettotallandowner" FunctionName="HomeBeyDBModel.Store.sp_gettotallandowner" />
+          <FunctionImportMapping FunctionImportName="sp_gettotalSeller" FunctionName="HomeBeyDBModel.Store.sp_gettotalSeller" />
+          <FunctionImportMapping FunctionImportName="sp_gettotalservicer" FunctionName="HomeBeyDBModel.Store.sp_gettotalservicer" />
+          <FunctionImportMapping FunctionImportName="sp_gettotalbidding" FunctionName="HomeBeyDBModel.Store.sp_gettotalbidding" />
+          <FunctionImportMapping FunctionImportName="sp_gettotalcomplaint" FunctionName="HomeBeyDBModel.Store.sp_gettotalcomplaint" />
+          <FunctionImportMapping FunctionImportName="sp_gettotalItem" FunctionName="HomeBeyDBModel.Store.sp_gettotalItem" />
+          <FunctionImportMapping FunctionImportName="sp_gettotalconstruction" FunctionName="HomeBeyDBModel.Store.sp_gettotalconstruction" />
+          <FunctionImportMapping FunctionImportName="sp_Usercomplaints" FunctionName="HomeBeyDBModel.Store.sp_Usercomplaints" />
+          <FunctionImportMapping FunctionImportName="sp_UserQuery" FunctionName="HomeBeyDBModel.Store.sp_UserQuery" />
+          <FunctionImportMapping FunctionImportName="sp_UserReviews" FunctionName="HomeBeyDBModel.Store.sp_UserReviews" />
+          <FunctionImportMapping FunctionImportName="sp_landownerConscount" FunctionName="HomeBeyDBModel.Store.sp_landownerConscount" />
+          <FunctionImportMapping FunctionImportName="sp_landownerquansum" FunctionName="HomeBeyDBModel.Store.sp_landownerquansum" />
+          <FunctionImportMapping FunctionImportName="sp_SellerItemcount" FunctionName="HomeBeyDBModel.Store.sp_SellerItemcount" />
+          <FunctionImportMapping FunctionImportName="sp_SellerItemprice" FunctionName="HomeBeyDBModel.Store.sp_SellerItemprice" />
+          <FunctionImportMapping FunctionImportName="sp_getrecentscreenshots" FunctionName="HomeBeyDBModel.Store.sp_getrecentscreenshots">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HomeBeyDBModel.sp_getrecentscreenshots_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Item_title" ColumnName="Item_title" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Item_price" ColumnName="Item_price" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Bid_amount" ColumnName="Bid_amount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_BuyerAccBid" FunctionName="HomeBeyDBModel.Store.sp_BuyerAccBid" />
+          <FunctionImportMapping FunctionImportName="sp_BuyerBid" FunctionName="HomeBeyDBModel.Store.sp_BuyerBid" />
+          <EntitySetMapping Name="tbl_Rating">
+            <EntityTypeMapping TypeName="HomeBeyDBModel.tbl_Rating">
+              <MappingFragment StoreEntitySet="tbl_Rating">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Item_id" ColumnName="Item_id" />
+                <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_livechat" FunctionName="HomeBeyDBModel.Store.sp_livechat">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HomeBeyDBModel.sp_livechat_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_contact">
+            <EntityTypeMapping TypeName="HomeBeyDBModel.tbl_contact">
+              <MappingFragment StoreEntitySet="tbl_contact">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Complaints">
+            <EntityTypeMapping TypeName="HomeBeyDBModel.tbl_Complaints">
+              <MappingFragment StoreEntitySet="tbl_Complaints">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Chat">
+            <EntityTypeMapping TypeName="HomeBeyDBModel.tbl_Chat">
+              <MappingFragment StoreEntitySet="tbl_Chat">
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="Receiver_user" ColumnName="Receiver_user" />
+                <ScalarProperty Name="Receiver_id" ColumnName="Receiver_id" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Sender_user" ColumnName="Sender_user" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Sender_id" ColumnName="Sender_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_proprogress">
+            <EntityTypeMapping TypeName="HomeBeyDBModel.tbl_proprogress">
+              <MappingFragment StoreEntitySet="tbl_proprogress">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Servicer_id" ColumnName="Servicer_id" />
+                <ScalarProperty Name="Progress" ColumnName="Progress" />
+                <ScalarProperty Name="Project_name" ColumnName="Project_name" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="Pro_id" ColumnName="Pro_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Order">
+            <EntityTypeMapping TypeName="HomeBeyDBModel.tbl_Order">
+              <MappingFragment StoreEntitySet="tbl_Order">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Product_price" ColumnName="Product_price" />
+                <ScalarProperty Name="Product_name" ColumnName="Product_name" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="Item_Userid" ColumnName="Item_Userid" />
+                <ScalarProperty Name="Id_Number" ColumnName="Id_Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Bidding">
+            <EntityTypeMapping TypeName="HomeBeyDBModel.User_Bidding">
+              <MappingFragment StoreEntitySet="User_Bidding">
+                <ScalarProperty Name="Buyer_Id" ColumnName="Buyer_Id" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Approve" ColumnName="Approve" />
+                <ScalarProperty Name="Item_Id" ColumnName="Item_Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Bid_amount" ColumnName="Bid_amount" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="Date_to" ColumnName="Date_to" />
+                <ScalarProperty Name="Date_from" ColumnName="Date_from" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_AddContructionAddBid" FunctionName="HomeBeyDBModel.Store.sp_AddContructionAddBid" />
+          <FunctionImportMapping FunctionImportName="sp_MypurchaseItem" FunctionName="HomeBeyDBModel.Store.sp_MypurchaseItem" />
+          <FunctionImportMapping FunctionImportName="sp_Myprojects" FunctionName="HomeBeyDBModel.Store.sp_Myprojects" />
+          <EntitySetMapping Name="tbl_cart_item">
+            <EntityTypeMapping TypeName="HomeBeyDBModel.tbl_cart_item">
+              <MappingFragment StoreEntitySet="tbl_cart_item">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="Item_price" ColumnName="Item_price" />
+                <ScalarProperty Name="Item_title" ColumnName="Item_title" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_paidItemprice" FunctionName="HomeBeyDBModel.Store.sp_paidItemprice" />
+          <FunctionImportMapping FunctionImportName="sp_Userchats" FunctionName="HomeBeyDBModel.Store.sp_Userchats">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HomeBeyDBModel.sp_Userchats_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Sender_id" ColumnName="Sender_id" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Sender_user" ColumnName="Sender_user" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Receiver_id" ColumnName="Receiver_id" />
+                <ScalarProperty Name="Receiver_user" ColumnName="Receiver_user" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

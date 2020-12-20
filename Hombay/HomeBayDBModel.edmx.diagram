@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3f4753aa99344660810327ed9854039c" Name="Diagram1">
+        <EntityTypeShape EntityType="HomeBeyDBModel.tbl_Category" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="HomeBeyDBModel.tbl_items" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HomeBeyDBModel.tbl_users" Width="1.5" PointX="4.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HomeBeyDBModel.tbl_Review" Width="1.5" PointX="0.5" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HomeBeyDBModel.tbl_new_construction" Width="1.5" PointX="6.5" PointY="3.25" />
+        <EntityTypeShape EntityType="HomeBeyDBModel.tbl_Rating" Width="1.5" PointX="8.25" PointY="3.5" />
+        <EntityTypeShape EntityType="HomeBeyDBModel.tbl_contact" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="HomeBeyDBModel.tbl_Complaints" Width="1.5" PointX="7.625" PointY="0.875" />
+        <EntityTypeShape EntityType="HomeBeyDBModel.tbl_Chat" Width="1.5" PointX="7.375" PointY="8.75" />
+        <EntityTypeShape EntityType="HomeBeyDBModel.tbl_proprogress" Width="1.5" PointX="10.375" PointY="3.5" />
+        <EntityTypeShape EntityType="HomeBeyDBModel.tbl_Order" Width="1.5" PointX="3.375" PointY="9.75" />
+        <EntityTypeShape EntityType="HomeBeyDBModel.User_Bidding" Width="1.5" PointX="9.375" PointY="6.75" />
+        <EntityTypeShape EntityType="HomeBeyDBModel.tbl_cart_item" Width="1.5" PointX="9.625" PointY="0.875" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

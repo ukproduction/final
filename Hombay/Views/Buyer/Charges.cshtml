@@ -1,0 +1,78 @@
+﻿
+@model Stripe.Checkout.Session
+@{
+    ViewBag.Title = "Charge";
+    Layout = "~/Views/_LayoutPage3.cshtml";
+}
+<script src="https://js.stripe.com/v3/"></script>
+<button class="btn btn-danger" id="btnPay">PayNow</button>
+<script>
+    var stripe = Stripe('pk_test_51HrzKFJWAkWQReajLesoTWvF3tGF0iOZCpDVpkwJrcUrhcLHf3jCriPbMvIG9dLLZKTFQnShS3RUis2koJ6i4qGJ00MgENXbP9');
+    var element = document.getElementById('btnPay');
+
+    element.addEventListener('click', function () {
+      stripe.redirectToCheckout({
+
+      sessionId: '@Model.Id'
+      }).then(function (result) {
+
+
+      });
+
+    });
+
+
+
+
+
+
+</script>
+
+<!--<h2>Charge</h2>
+
+
+@*<script>
+    $('#btn').click(function () {
+    stripe.api_key = "pk_test_51HrzKFJWAkWQReajLesoTWvF3tGF0iOZCpDVpkwJrcUrhcLHf3jCriPbMvIG9dLLZKTFQnShS3RUis2koJ6i4qGJ00MgENXbP9"
+
+    token = stripe.Token.create(
+        card = {
+            "number": '4242424242424242',
+            "exp_month": '12',
+            "exp_year": '2020',
+            "cvc": '123'
+        },
+    )
+        console.log(token);
+    });
+</script>*@
+
+
+<!--<form action="~/js/client.js" method="post" id="payment-form">
+    <div class="form-row">
+        <label for="card-element">
+            Credit or debit card
+        </label>
+        <div id="card-element">-->
+<!-- A Stripe Element will be inserted here. -->
+<!--</div>-->
+<!-- Used to display Element errors. -->
+<!--<div id="card-errors" role="alert"></div>
+    </div>
+
+    <button>Submit Payment</button>
+</form>-->
+@*@using (Html.BeginForm("Charge", "Buyer", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+    {
+    <form method="post">
+        <article>
+            <label>Amount: $d5.00</label>
+        </article>
+        <script src="https://js.stripe.com/v3/" class="stripe-button" data-key="@ViewBag.StripePublishKey" data-locale="auto" data-description="Sample Charge" data-amount="1"></script>
+
+
+        <input type="submit" id="btn" value="check" />
+    </form>
+    }*@
+
+

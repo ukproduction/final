@@ -1,0 +1,118 @@
+﻿@model IPagedList<Hombay.tbl_proprogress>
+@{
+    ViewBag.Title = "Inprogress_Project";
+    Layout = "~/Views/_LayoutPageServicer.cshtml";
+}
+@using PagedList.Mvc;
+@using PagedList;
+<html>
+<head>
+    <link href="~/content/PagedList.css" rel="stylesheet" />
+    @ViewBag.LoginUsername
+
+</head>
+<body>
+    <div class="page-wrapper" style="min-height: 250px;">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb bg-white">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title text-uppercase font-medium font-14">List</h4>
+                </div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <div class="d-md-flex">
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="white-box">
+                        <h3 class="box-title">Search List</h3>
+
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().User_id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Project_name)
+                                </th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Progress)
+                                </th>
+                              
+
+
+                                <th>Action</th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.User_id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Project_name)
+                                    </td>
+
+                                    <td>
+                                       
+                                        <progress id="Progress" name="Progress" value="@item.Progress" max="100" ></progress>
+                                    </td>
+                                   
+
+
+                                    <td>
+                                    
+
+                                        <button class="btn btn-primary">  @Html.ActionLink("Update", "Update_ProProgress", new { Pro_id = item.Pro_id }, new { @class = "link" })</button>
+                                        <style>
+                                            a.link {
+                                                color: White;
+                                            }
+
+                                                a.link:hover {
+                                                    color: White;
+                                                }
+                                        </style>
+
+
+
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+
+                        @Html.PagedListPager(Model, i => Url.Action("Inprogress_Project", "Servicer", new { i, search = Request.QueryString["search"] }))
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

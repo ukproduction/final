@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Hombey</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href=@Url.Content("site.webmanifest")>
+   
+   
+    <!-- CSS here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href=@Url.Content("/content/css/owl.carousel.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/content/css/slicknav.css")>
+    <link rel="stylesheet" href=@Url.Content("/content/css/animate.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/content/css/magnific-popup.css")>
+    <link rel="stylesheet" href=@Url.Content("/content/css/fontawesome-all.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/content/css/themify-icons.css")>
+    <link rel="stylesheet" href=@Url.Content("/content/css/slick.css")>
+    <link rel="stylesheet" href=@Url.Content("/content/css/nice-select.css")>
+    <link rel="stylesheet" href=@Url.Content("/content/css/style.css")>
+    <link rel="stylesheet" href=@Url.Content("/content/css/Extra.css")>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <style>
+        /*Signup page css start -----------------------------------------------------------------*/
+
+
+        .btndefault {
+            padding: 10px;
+            color: white;
+            background-color: orangered;
+            border-radius: 5px;
+        }
+
+        .big-logo {
+            height: 45px;
+            position: relative;
+            margin-top: 0px;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header ">
+
+                <div class="header-bottom  header-sticky" style="background-color: #2F323E;">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo">
+                                    <!-- logo-1 -->
+                                    <a href="#"><img src="~/content/image/logo/logo.png"  style="margin-top:15px;"></a>
+                                    <!-- logo-2 -->
+
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-9 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li class="link">@Html.ActionLink("Home", "Index", "Home")</li>
+                                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                                            <li>
+                                                @Html.ActionLink("Projects", "Projects", "Home")
+                                                <ul class="submenu">
+                                                    <li>@Html.ActionLink("Project Detail", "Project_Details", "Account")</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Services", "Services", "Home")
+                                                <ul class="submenu">
+                                                    <li>@Html.ActionLink("Service Detail", "Services", "Home")</li>
+                                                </ul>
+                                            </li>
+                                            <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+                                            <li>@Html.ActionLink("Products", "Products", "Home")</li>
+                                            <li>
+                                                @Html.ActionLink("Login Panel", "LoginSeller", "Seller")
+                                                <ul class="submenu">
+                                                    <li>@Html.ActionLink("Seller Panel", "LoginSeller", "Seller")</li>
+                                                    <li>@Html.ActionLink("Buyer Panel", "LoginBuyer", "Buyer")</li>
+                                                    <li>@Html.ActionLink("Servicer Panel", "ServicerLogin", "Servicer")</li>
+
+                                                </ul>
+                                            </li>
+
+                                            <a id="myBtn1" class="btndefault" style="cursor:pointer;color:white;" onclick="location.href='@Url.Action("Login","Admin")'">Admin</a>
+                                            <a id="myBtn1" class="btndefault" style="cursor:pointer;color:white;" onclick="location.href='@Url.Action("SignUp","SignUp")'">Sign Up</a>
+
+
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+
+    <div>
+        @RenderBody();
+    </div>
+
+    <footer>
+        <!-- Footer Start-->
+        <div class="footer-main">
+            <div class="footer-area footer-padding">
+                <div class="container">
+                    <div class="row  justify-content-between">
+                        <div class="col-lg-3 col-md-4 col-sm-8">
+                            <div class="single-footer-caption mb-30">
+                                <!-- logo -->
+                                <div class="footer-logo">
+                                    <a href="index.html"><img src="~/content/image/logo/logo.png" alt="" style="padding:0px;"></a>
+                                </div>
+                                <div class="footer-tittle">
+                                    <div class="footer-pera">
+                                        <p class="info1">HOMBEY is the home of construction. We provide contruction related services and products.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-5">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Quick Links</h4>
+                                    <ul>
+                                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                                        <li>@Html.ActionLink("Services", "Services", "Home")</li>
+                                        <li>@Html.ActionLink("Products", "Products", "Home")</li>
+                                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-7">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Contact</h4>
+                                    <div class="footer-pera">
+                                        <p class="info1">Comsats University Islamabad</p>
+                                    </div>
+                                    <ul>
+                                        <li><a href="#">Phone: +92 0331 1234567</a></li>
+                                        <li><a href="#">Cell: +92 0331 1234567</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-8">
+                            <div class="single-footer-caption mb-50">
+
+                                <!-- Map -->
+                                <div class="map-footer">
+                                    <img src="content/image/gallery/map-footer.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src=@Url.Content("./content/js/vendor/modernizr-3.5.0.min.js")></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src=@Url.Content("./content/js/vendor/jquery-1.12.4.min.js")></script>
+    <script src=@Url.Content("./content/js/popper.min.js")></script>
+    <script src=@Url.Content("./content/js/bootstrap.min.js")></script>
+    <!-- Jquery Mobile Menu -->
+    <script src=@Url.Content("./content/js/jquery.slicknav.min.js")></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src=@Url.Content("./content/js/owl.carousel.min.js")></script>
+    <script src=@Url.Content("./content/js/slick.min.js")></script>
+    <!-- Date Picker -->
+    <script src=@Url.Content("./content/js/gijgo.min.js")></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src=@Url.Content("./content/js/wow.min.js")></script>
+    <script src=@Url.Content("./content/js/animated.headline.js")></script>
+    <script src=@Url.Content("./content/js/jquery.magnific-popup.js")></script>
+    <!-- Scrollup, nice-select, sticky -->
+    <script src=@Url.Content("./content/js/jquery.scrollUp.min.js")></script>
+    <script src=@Url.Content("./content/js/jquery.nice-select.min.js")></script>
+    <script src=@Url.Content("./content/js/jquery.sticky.js")></script>
+
+    <!-- counter , waypoint -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src=@Url.Content("./content/js/jquery.counterup.min.js")></script>
+    <!-- contact js -->
+    <script src=@Url.Content("./content/js/contact.js")></script>
+    <script src=@Url.Content("./content/js/jquery.form.js")></script>
+    <script src=@Url.Content("./content/js/jquery.validate.min.js")></script>
+    <script src=@Url.Content("./content/js/mail-script.js")></script>
+    <script src=@Url.Content("./content/js/jquery.ajaxchimp.min.js")></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src=@Url.Content("./content/js/plugins.js")></script>
+    <script src=@Url.Content("./content/js/main.js")></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script>
+        const email = document.getElementById("mail");
+
+        email.addEventListener("input", function (event) {
+            if (email.validity.typeMismatch) {
+                email.setCustomValidity("I am expecting an e-mail address!");
+            } else {
+                email.setCustomValidity("");
+            }
+        });
+    </script>
+
+
+</body>
+</html>
+

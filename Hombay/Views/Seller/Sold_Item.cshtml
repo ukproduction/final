@@ -1,0 +1,121 @@
+﻿@model IPagedList<Hombay.tbl_Order>
+@{
+    ViewBag.Title = "Sold_Item";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+}
+@using PagedList.Mvc;
+@using PagedList;
+<html>
+<head>
+
+    @ViewBag.LoginUsername
+
+    <link href="~/content/PagedList.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="page-wrapper" style="min-height: 250px;">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb bg-white">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title text-uppercase font-medium font-14">List</h4>
+                </div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <div class="d-md-flex">
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="white-box">
+                        <h3 class="box-title">Search List</h3>
+
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Id_Number)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Product_name)
+                                </th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Product_price)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Date)
+                                </th>
+
+                              
+                                <th>Action</th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Id_Number)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Product_name)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Product_price)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Date)
+                                    </td>
+
+                                 
+                                    <td>
+                                       
+
+                                        <button class="btn btn-info">  @Html.ActionLink("View", "New_Bid", new { id = item.Id }, new { @class = "link" })</button>
+                                        <style>
+                                            a.link {
+                                                color: White;
+                                            }
+
+                                                a.link:hover {
+                                                    color: White;
+                                                }
+                                        </style>
+
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+
+                        @Html.PagedListPager(Model, i => Url.Action("Sold_Item", "Seller", new { i, search = Request.QueryString["search"] }))
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+﻿@model Hombay.tbl_users
+@{
+    ViewBag.Title = "Edit_User";
+    Layout = "~/Views/_LayoutPageAdmin.cshtml";
+}
+<main>
+
+    <script type="text/javascript">
+        var check = function () {
+            if (document.getElementById('password').value ==
+                document.getElementById('confirm_password').value) {
+                document.getElementById('message').style.color = 'mediumseagreen';
+                document.getElementById('message').innerHTML = 'Password Match';
+            } else {
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerHTML = 'Not matching';
+            }
+        }
+    </script>
+
+    <link href="~/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            color: black;
+        }
+    </style>
+    @if (TempData["Success"] != null)
+    {<div class="container">
+            <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+        </div>
+    }
+    <form class="form-detail" action="#" method="post" id="myform" style="margin-top:10px;">
+        <div class="row">
+            <div class="col-lg-3 offset-3">
+                <label for="username">Name</label>
+                <div class="input-group">
+
+                    <span class="input-group-addon">
+                        <i class="fas fa-bars" style="margin:0px;padding:11px;background-color:orangered;color:white;"> </i>
+                    </span>
+                    <input placeholder="Name" type="text" name="Name" id="username" value="@Model.Name" class="form-control" required>
+                </div>
+                <label for="username">USERNAME</label>
+
+                <div class="input-group">
+
+                    <span class="input-group-addon">
+                        <i class="fas fa-user" style="margin:0px;padding:11px;background-color:orangered;color:white;"> </i>
+                    </span>
+                    <input placeholder="Username" type="text" name="Username" id="username" value="@Model.Username" class="form-control" required>
+                </div>
+                <label for="username">Email</label>
+
+                <div class="input-group">
+
+                    <span class="input-group-addon">
+                        <i class="fas fa-envelope" style="margin:0px;padding:11px;background-color:orangered;color:white;"> </i>
+                    </span>
+                    <input id="mail" placeholder="info@gmail.com" type="email" name="Email" value="@Model.Email" class="form-control" required>
+                </div>
+                <label for="username">Phone</label>
+
+                <div class="input-group">
+
+                    <span class="input-group-addon">
+                        <i class="fas fa-phone" style="margin:0px;padding:11px;background-color:orangered;color:white;"> </i>
+                    </span>
+                    <input placeholder="##########" type="text" name="Mobile" id="phone" value="@Model.Mobile" class="form-control" required>
+                </div>
+                <label for="username">Your Role</label>
+
+                <div class="input-group">
+
+                    <span class="input-group-addon">
+                        <i class="fas fa-tasks" style="margin:0px;padding:11px;background-color:orangered;color:white;"> </i>
+                    </span>
+                    <select id="Role" Name="Role" class="form-control">
+                        <option value="@Model.Role">@Model.Role</option>
+                        <option value="Servicer">Servicer</option>
+                        <option value="Seller">Seller</option>
+                        <option value="Buyer">Buyer</option>
+
+                    </select>
+                </div>
+                <label for="username">Gender</label>
+
+                <div class="input-group">
+
+                    <span class="input-group-addon">
+                        <i class="fas fa-male" style="margin:0px;padding:11px;background-color:orangered;color:white;"> </i>
+                    </span>
+                    <select id="Role" Name="Gender" class="form-control">
+                        <option value="@Model.Gender">@Model.Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+
+                    </select>
+                </div>
+                <br />
+                <div class="form-row">
+                    <input type="submit" class="btn btn-success" name="register" value="Update">
+
+                </div>
+
+            </div>
+            <div class="col-lg-3">
+                <label for="username">Address</label>
+
+                <div class="input-group">
+
+                    <span class="input-group-addon">
+                        <i class="fas fa-address-card" style="margin:0px;padding:11px;background-color:orangered;color:white;"> </i>
+                    </span>
+                    <input type="text" name="Address" id="address" value="@Model.Address" class="form-control" required maxlength="30">
+                </div>
+                <label for="username">Company</label>
+
+                <div class="input-group">
+
+                    <span class="input-group-addon">
+                        <i class="fas fa-bars" style="margin:0px;padding:11px;background-color:orangered;color:white;"> </i>
+                    </span>
+                    <input type="text" name="Organization" id="address" value="@Model.Organization" class="form-control" required maxlength="30">
+                </div>
+                <label for="username">Bio Detail</label>
+
+                <div class="input-group">
+
+                    <span class="input-group-addon">
+                        <i class="fas fa-file" style="margin:0px;padding:11px;background-color:orangered;color:white;"> </i>
+                    </span>
+                    <input type="text" name="Bio" id="bio" value="@Model.Bio" class="form-control" required maxlength="40">
+                </div>
+                <label for="username">Password</label>
+
+                <div class="input-group">
+
+                    <span class="input-group-addon">
+                        <i class="fas fa-key" style="margin:0px;padding:11px;background-color:orangered;color:white;"> </i>
+                    </span>
+                    <input name="password" id="password" type="password" value="@Model.Password" class="form-control" onkeyup='check();' />
+                </div>
+                <label for="username">Confirm Password</label>
+
+                <div class="input-group">
+
+                    <span class="input-group-addon">
+                        <i class="fas fa-key" style="margin:0px;padding:11px;background-color:orangered;color:white;"> </i>
+                    </span>
+                    <input type="password" name="confirm_password" id="confirm_password" class="form-control" onkeyup='check();' />
+                    <br />
+                    <span id='message'></span>
+                </div>
+                <div class="form-row">
+                    <br />
+                    <img src="@Url.Content(Model.Image)" Name="Image" class="thumb-lg img-circle" alt="img">
+
+                    @{TempData["Data1"] = @Url.Content(Model.Image); }<br />
+
+
+                    <input id="BrowseImage" type="file" name="ImageFile">
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+
+
+</main>

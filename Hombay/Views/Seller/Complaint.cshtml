@@ -1,0 +1,87 @@
+﻿@model Hombay.tbl_contact
+@{
+    ViewBag.Title = "Complaint";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+}
+
+<body>
+    <div class="page-wrapper" style="min-height: 250px;">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb bg-white">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title text-uppercase font-medium font-14">Complaint</h4>
+                </div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <div class="d-md-flex">
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+
+
+
+        <div class="container-fluid">
+
+            @using (Html.BeginForm("Complaint", "Seller", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="white-box">
+                            <h3 class="box-title">New Complaint</h3>
+                            @if (TempData["Success"] != null)
+                            {<div class="container">
+                                    <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+                                </div>
+                            }
+                            <div class="row">
+                                <div class="col-lg-4 offset-4">
+                                    Message
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+
+                                        </span>
+
+                                        <input id="Subject" type="text" class="form-control" name="Subject" placeholder="Subject">
+
+                                    </div>
+                                    <br />Description
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+
+                                        </span>
+
+                                        <textarea id="Message" type="text" class="form-control" name="Message" style="height:250px;" placeholder="Message"></textarea>
+
+                                    </div>
+                                    <br />
+                                    <input type="submit" value="Submit" class="btn btn-primary" />
+
+                                    <br /><br />
+
+
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+</body>

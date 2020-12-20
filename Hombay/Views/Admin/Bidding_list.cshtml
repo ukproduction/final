@@ -1,0 +1,145 @@
+﻿@model IPagedList<Hombay.User_Bidding>
+
+@{
+    ViewBag.Title = "Bidding_list";
+    Layout = "~/Views/_LayoutPageAdmin.cshtml";
+}
+@using PagedList.Mvc;
+@using PagedList;
+
+<html>
+<head>
+
+    <link href="~/content/PagedList.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="page-wrapper" style="min-height: 250px;">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb bg-white">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title text-uppercase font-medium font-14">Profile Page</h4>
+                </div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <div class="d-md-flex">
+                       
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="white-box">
+                        <h3 class="box-title">Search List</h3>
+
+                        <table class="table">
+                            <tr>
+                                
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Item_Name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Quantity)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Date_from)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Date_to)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().price)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Bid_amount)
+                                </th>
+                              
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Approve)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Image)
+                                </th>
+                                <th>Action</th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Item_Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Quantity)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Date_from)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Date_to)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.price)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Bid_amount)
+                                    </td>
+                                   
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Approve)
+                                    </td>
+                                    <td>
+                                        <img src="@Url.Content(item.Image)" style="width:50px;height:50px;" />
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-danger">  @Html.ActionLink("Delete", "Delete_Bidding", new { id = item.Id }, new { @class = "link" })</button>
+                                        <style>
+                                            a.link {
+                                                color: White;
+                                            }
+
+                                                a.link:hover {
+                                                    color: White;
+                                                }
+                                        </style>
+
+
+
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+
+                        @Html.PagedListPager(Model, i => Url.Action("Bidding_list", "Admin", new { i, search = Request.QueryString["search"] }))
+                        @if (ViewBag.Success != null && ViewBag.Success)
+                        {
+                            <div class="alert alert-success">
+                                <strong>Success!</strong> Request is been Completed...
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

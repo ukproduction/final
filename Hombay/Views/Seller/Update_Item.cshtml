@@ -1,0 +1,221 @@
+﻿@model Hombay.tbl_items
+
+@{
+    ViewBag.Title = "Update_Item";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+}
+
+<html>
+<head>
+
+
+
+</head>
+<body>
+    <div class="page-wrapper" style="min-height: 250px;">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb bg-white">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title text-uppercase font-medium font-14"> Page</h4>
+                </div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <div class="d-md-flex">
+                       
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="white-box">
+                        <h3 class="box-title">Update Item</h3>
+                        @if (TempData["Success"] != null)
+                        {<div class="container">
+                                <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+                            </div>
+                        }
+
+                        @using (Html.BeginForm("Update_Item", "Seller", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+                        {
+                            <div class="row">
+                                <div class="col-lg-4 offset-2">
+
+
+
+
+
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-horizontal">
+
+
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        @Html.HiddenFor(model => model.Id)
+
+
+                                        Name
+                                        <div class="input-group">
+
+                                            <span class="input-group-addon">
+                                                <i class="fas fa-bars" style="margin:0px;padding:10px;background-color:orangered;color:white;"> </i>
+                                            </span>
+
+
+                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+                                        </div>
+                                        Title
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fas fa-book" style="margin:0px;padding:10px;background-color:orangered;color:white;"> </i>
+                                            </span>
+
+                                            @Html.EditorFor(model => model.Item_title, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Item_title, "", new { @class = "text-danger" })
+
+                                        </div>
+                                        Mobile
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fas fa-file-image" style="margin:0px;padding:10px;background-color:orangered;color:white;"> </i>
+                                            </span>
+
+
+                                            @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+
+                                        </div>
+                                        Category
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class=" fas fa-filter" style="margin:0px;padding:10px;background-color:orangered;color:white;"> </i>
+                                            </span>
+
+
+                                            @Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+
+                                        </div>
+                                        Quantity
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class=" fas fa-clipboard-check" style="margin:0px;padding:10px;background-color:orangered;color:white;"> </i>
+                                            </span>
+
+                                            @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+
+                                        </div>
+                                        Email
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class=" fas fa-envelope" style="margin:0px;padding:10px;background-color:orangered;color:white;"> </i>
+                                            </span>
+
+                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                                        </div>
+
+                                        Date
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fas fa-calendar" style="margin:0px;padding:10px;background-color:orangered;color:white;"> </i>
+                                            </span>
+
+                                            @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+
+                                        </div>
+
+                                        <br />
+
+                                        <div class="input-group">
+
+                                            <input type="submit" value="Update" class="btn btn-primary" />
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="col-lg-4">
+
+
+
+
+                                    Company
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class=" fas fa-clipboard-check" style="margin:0px;padding:10px;background-color:orangered;color:white;"> </i>
+                                        </span>
+                                        @Html.EditorFor(model => model.Company, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Company, "", new { @class = "text-danger" })
+
+                                    </div>
+                                    User
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class=" fas fa-address-book" style="margin:0px;padding:10px;background-color:orangered;color:white;"> </i>
+                                        </span>
+
+                                        @Html.EditorFor(model => model.User_id, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.User_id, "", new { @class = "text-danger" })
+
+                                    </div>
+                                    Price
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fas fa-check" style="margin:0px;padding:10px;background-color:orangered;color:white;"> </i>
+                                        </span>
+
+                                        @Html.EditorFor(model => model.Item_price, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Item_price, "", new { @class = "text-danger" })
+
+                                    </div>
+
+
+                                    Image
+                                    <div class="Input-group">
+
+                                        <input id="BrowseImage" type="file" name="ImageFile">
+
+                                        <br />
+                                        <img src="@Url.Content(Model.Image)" class="img-responsive" id="UserImage" style="width:250px;height:150px;" />
+
+
+                                        @{TempData["Data1"] = @Url.Content(Model.Image); }
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

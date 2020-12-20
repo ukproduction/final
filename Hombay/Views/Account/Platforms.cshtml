@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "Platforms";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+<style>
+    main {
+        background: #101010;
+        color: #808080;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        height: auto;
+    }
+
+
+    .container {
+        width: 1500px;
+    }
+
+
+
+    /* divider section */
+    .divider {
+        color: #fff;
+        text-align: center;
+        padding-top: 300px;
+    }
+
+        .divider .fa {
+            border: 2px solid #fff;
+            border-radius: 50%;
+            font-size: 32px;
+            width: 100px;
+            height: 100px;
+            line-height: 76px;
+            text-transform: capitalize;
+        }
+
+        .divider h2 {
+            padding-bottom: 4px;
+        }
+
+        .divider .divider-wrapper {
+            padding: 40px 20px 40px 20px;
+            position: relative;
+            bottom: 40px;
+            transition: all 0.4s ease-in;
+        }
+
+            .divider .divider-wrapper:hover {
+                bottom: 60px;
+                cursor: pointer;
+            }
+
+        .divider .divider-one {
+            background: #bec100;
+        }
+
+        .divider .divider-two {
+            background: #f27979;
+        }
+
+        .divider .divider-three {
+            background: #ffa500;
+        }
+
+    #h2 {
+        font-size: 35px;
+        color: black;
+        font-display: block;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+    }
+</style>
+<main>
+
+
+
+    <div class="divider">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="divider-wrapper divider-one" style="background-color:brown;">
+                        <i class="fa fa-child fa-lg"></i>
+                        <div id="h2">  @Html.ActionLink("LandOwner", "SignUp", "SignUp")</div>
+                        <p>Landowner will buy the different contruction products and hire a company to avail the construction releated services.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="divider-wrapper divider-two" style="background-color:chocolate;">
+                        <i class="fa fa-wrench fa-lg"></i>
+                        <div id="h2">  @Html.ActionLink("Servicer", "SignUp", "SignUp")</div>
+                        <p>Servicer are the different constructions companies that provide the different releated services to user.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="divider-wrapper divider-three" style="background-color:goldenrod;">
+                        <i class="fa fa-balance-scale fa-lg"></i>
+                        <div id="h2">  @Html.ActionLink("Seller", "SignUp", "SignUp")</div>
+                        <p>Seller can add different construction products and sell them to the different users.User will add products</p>
+                    </div>
+                    
+                </div>
+
+               
+               
+                <div class="col-md-3 col-sm-12">
+                    <div class="divider-wrapper divider-three"  style="background-color:teal;">
+                        <i class="fa fa-shopping-cart fa-lg"></i>
+                        <div id="h2">  @Html.ActionLink("Buyer", "SignUp", "SignUp")</div>
+                        <p>Seller can add different construction products and sell them to the different users.User will add products</p>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+</main>

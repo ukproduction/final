@@ -1,0 +1,191 @@
+﻿@model Hombay.tbl_users
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/_LayoutPageAdmin.cshtml";
+}
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title text-uppercase font-medium font-14">Profile page</h4>
+
+            </div>
+           
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+  
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <!-- Row -->
+        <div class="row">
+            @if (TempData["Success"] != null)
+            {<div class="container">
+                    <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+                </div>
+            }
+            <!-- Column -->
+            <div class="col-lg-4 col-xlg-3 col-md-12">
+                <div class="white-box">
+                    <div class="user-bg">
+
+                        <div class="overlay-box">
+                            <div class="user-content">
+                                <a href="javascript:void(0)">
+                                    <img src="@Url.Content(Model.Image)" Name="Image" class="thumb-lg img-circle" alt="img">
+
+                                    @{TempData["Data1"] = @Url.Content(Model.Image); }
+                                </a>
+                                <h4 class="text-white mt-2"> @Model.Username</h4>
+                                <h5 class="text-white mt-2">@Model.Email</h5>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-btm-box mt-5 d-md-flex">
+                        <div class="col-md-4 col-sm-4 text-center">
+                            <h1></h1>
+                        </div>
+                        <div class="col-md-4 col-sm-4 text-center">
+                            <h1></h1>
+                        </div>
+                        <div class="col-md-4 col-sm-4 text-center">
+                            <h1></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-8 col-xlg-9 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        @using (Html.BeginForm("Profile", "Admin", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+                        {
+                            <input type="text" name="Id" value="@Model.Id" style="display:none;" />
+                            <div class="form-group mb-4">
+                                <label class="col-md-12 p-0">Name</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" Name="Name" value="@Model.Name"
+                                           class="form-control p-0 border-0">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label class="col-md-12 p-0">Username</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" Name="Username" value="@Model.Username"
+                                           class="form-control p-0 border-0">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="example-email" class="col-md-12 p-0">Email</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="email" Name="Email" value="@Model.Email"
+                                           class="form-control p-0 border-0" name="example-email"
+                                           id="example-email">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label class="col-md-12 p-0">Password</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="password" name="Password" value="@Model.Password" class="form-control p-0 border-0">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label class="col-md-12 p-0">Mobile</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="number" name="Mobile" value="@Model.Mobile" class="form-control p-0 border-0">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label class="col-md-12 p-0">Role</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" name="Role" value="@Model.Role" class="form-control p-0 border-0">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label class="col-md-12 p-0">Status</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" name="Status" value="@Model.Status" class="form-control p-0 border-0">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label class="col-md-12 p-0">Organization</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" name="Organization" value="@Model.Organization" class="form-control p-0 border-0">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label class="col-md-12 p-0">Gender</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" name="Gender" value="@Model.Gender" class="form-control p-0 border-0">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label class="col-md-12 p-0">Bio</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" name="Bio" value="@Model.Bio" class="form-control p-0 border-0">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label class="col-md-12 p-0">Address</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" placeholder="123 456 7890" value="@Model.Address"
+                                           class="form-control p-0 border-0" name="Address">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label class="col-md-12 p-0">Upload</label>
+                                <input id="BrowseImage" type="file" name="ImageFile">
+                            </div>
+
+
+
+                            <div class="form-group mb-4">
+                                <div class="col-sm-12">
+                                    <input type="submit" value="Update" class="btn btn-success" />
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+        </div>
+        <!-- Row -->
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->

@@ -1,0 +1,277 @@
+﻿@model Hombay.tbl_Order
+@{
+    ViewBag.Title = "Item_Detail";
+    Layout = "~/Views/_LayoutPage3.cshtml";
+}
+
+<html>
+<head>
+
+
+
+</head>
+<body>
+    <div class="page-wrapper" style="min-height: 250px;">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb bg-white">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title text-uppercase font-medium font-14">Detail </h4>
+                </div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <div class="d-md-flex">
+                      
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="white-box">
+                        <h3 class="box-title">Rate Item</h3>
+
+                        @if (TempData["Success"] != null)
+                        {<div class="container">
+                                <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+                            </div>
+                        }
+                        <form id="demoForm" name="demoForm" method="post">
+                            <div class="row">
+                                <div class="col-lg-4 offset-2">
+
+
+
+
+
+
+
+                                    <div class="form-horizontal">
+
+
+
+
+
+                                        Name
+                                        <div class="input-group">
+
+                                            <span class="input-group-addon">
+                                                <i class="fas fa-bars" style="margin:0px;padding:10px;background-color:crimson;color:white;"> </i>
+                                            </span>
+
+                                            <input id="Name" type="text" class="form-control" name="Item_Name" value="@Model.Product_name" />
+
+
+
+                                        </div>
+                                        ID
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fas fa-book" style="margin:0px;padding:10px;background-color:crimson;color:white;"> </i>
+                                            </span>
+                                            <input id="Name" type="text" class="form-control" name="User_id" value="@Model.User_id" />
+
+
+
+                                        </div>
+                                        Item ID
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fas fa-file-image" style="margin:0px;padding:10px;background-color:crimson;color:white;"> </i>
+                                            </span>
+
+                                            <input id="Name" type="text" class="form-control" name="Name" value="@Model.Item_Userid" />
+
+
+
+                                        </div>
+
+
+
+                                        Date
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fas fa-calendar" style="margin:0px;padding:10px;background-color:crimson;color:white;"> </i>
+                                            </span>
+
+                                            <input id="Name" type="date" class="form-control" name="Date" value="@Model.Date" />
+
+
+                                        </div>
+                                        <div class="input-group">
+
+
+                                            <fieldset class="rating">
+
+                                                <h5>Please rate:</h5>
+                                                <input type="radio" id="star5" name="Rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+                                                <input type="radio" id="star4" name="Rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                                                <input type="radio" id="star3" name="Rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+                                                <input type="radio" id="star2" name="Rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+                                                <input type="radio" id="star1" name="Rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+                                            </fieldset>
+
+                                        </div>
+
+
+                                        <br />
+
+                                        <div class="input-group">
+
+                                            <input type="submit" value="Submit" class="btn btn-primary" />
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="col-lg-4">
+
+
+
+
+                                    price
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class=" fas fa-clipboard-check" style="margin:0px;padding:10px;background-color:crimson;color:white;"> </i>
+                                        </span>
+                                        <input id="Name" type="text" class="form-control" name="Price" value="@Model.Product_price" />
+
+                                    </div>
+
+                                </div>
+
+                                <div class="input-group">
+
+
+
+
+
+
+
+
+                                </div>
+
+
+
+
+                            </div>
+                        </form>
+
+
+
+                        <style>
+                            .rating {
+                                float: left;
+                            }
+
+                                /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
+                                follow these rules. Every browser that supports :checked also supports :not(), so
+                                it doesn’t make the test unnecessarily selective */
+                                .rating:not(:checked) > input {
+                                    position: absolute;
+                                    top: -9999px;
+                                    clip: rect(0,0,0,0);
+                                }
+
+                                .rating:not(:checked) > label {
+                                    float: right;
+                                    width: 1em;
+                                    padding: 0 .1em;
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                    cursor: pointer;
+                                    font-size: 200%;
+                                    line-height: 1.2;
+                                    color: #ddd;
+                                    text-shadow: 1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+                                }
+
+                                    .rating:not(:checked) > label:before {
+                                        content: '★ ';
+                                    }
+
+                                .rating > input:checked ~ label {
+                                    color: #f70;
+                                    text-shadow: 1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+                                }
+
+                                .rating:not(:checked) > label:hover,
+                                .rating:not(:checked) > label:hover ~ label {
+                                    color: gold;
+                                    text-shadow: 1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+                                }
+
+                                .rating > input:checked + label:hover,
+                                .rating > input:checked + label:hover ~ label,
+                                .rating > input:checked ~ label:hover,
+                                .rating > input:checked ~ label:hover ~ label,
+                                .rating > label:hover ~ input:checked ~ label {
+                                    color: #ea0;
+                                    text-shadow: 1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+                                }
+
+                                .rating > label:active {
+                                    position: relative;
+                                    top: 2px;
+                                    left: 2px;
+                                }
+                        </style>
+
+                        <script>
+
+                                var $star_rating = $('.star-rating .fa');
+
+                                var SetRatingStar = function () {
+                                    return $star_rating.each(function () {
+                                        if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+                                            return $(this).removeClass('fa-star-o').addClass('fa-star');
+                                        } else {
+                                            return $(this).removeClass('fa-star').addClass('fa-star-o');
+                                        }
+                                    });
+                                };
+
+                                $star_rating.on('click', function () {
+                                    $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+                                    return SetRatingStar();
+                                });
+
+                                SetRatingStar();
+                                $(document).ready(function () {
+
+                                });
+                        </script>
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

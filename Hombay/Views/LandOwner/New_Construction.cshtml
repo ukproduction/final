@@ -1,0 +1,166 @@
+﻿
+@{
+    ViewBag.Title = "New_Construction";
+    Layout = "~/Views/_LayoutpageLandowner.cshtml";
+}
+<html>
+<head>
+
+
+
+</head>
+<body>
+    <div class="page-wrapper" style="min-height: 250px;">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb bg-white">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title text-uppercase font-medium font-14">Profile Page</h4>
+                </div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <div class="d-md-flex">
+                        <ol class="breadcrumb ml-auto">
+                            <li><a href="#">Dashboard</a></li>
+                        </ol>
+                        <a href="https://wrappixel.com/templates/ampleadmin/" target="_blank"
+                           class="btn btn-danger  d-none d-md-block pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">
+                            Upgrade
+                            to Pro
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            @using (Html.BeginForm("New_Construction", "Landowner", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+            {
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="white-box">
+                            <h3 class="box-title">Construction Detail</h3>
+                            <div class="row">
+                                <div class="col-lg-4 offset-2">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fas fa-bars" style="margin:0px;padding:10px;background-color:crimson;color:white;"> </i>
+                                        </span>
+
+                                        <input id="Name" type="text" class="form-control" name="Name" placeholder="Name" />
+
+                                    </div>
+                                    <br />
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fas fa-book" style="margin:0px;padding:10px;background-color:crimson;color:white;"> </i>
+                                        </span>
+
+                                        <input id="Item_title" type="text" class="form-control" name="Title" placeholder="Title">
+
+                                    </div>
+                                    <br />
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fas fa-file-image" style="margin:0px;padding:10px;background-color:crimson;color:white;"> </i>
+                                        </span>
+
+                                        <input id="Mobile" type="text" class="form-control" name="Mobile" placeholder="Mobile">
+
+                                    </div>
+                                    <br />
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class=" fas fa-filter" style="margin:0px;padding:10px;background-color:crimson;color:white;"> </i>
+                                        </span>
+
+                                        <input id="Company" type="text" class="form-control" name="Type" placeholder="Type">
+
+                                    </div>
+                                    <br />
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class=" fas fa-clipboard-check" style="margin:0px;padding:10px;background-color:crimson;color:white;"> </i>
+                                        </span>
+
+                                        <input id="Company" type="text" class="form-control" name="Dimension" placeholder="Dimension">
+
+                                    </div>
+                                    <br />
+                                    <div class="input-group">
+
+
+                                        <input id="User_id" type="text" class="form-control" value="@Session["UserID"].ToString()" readonly style="display:none;" name="User_id" placeholder="User">
+
+                                    </div><br />
+
+                                    <input id="BrowseImage" type="file" name="ImageFile">
+
+
+                                    <br /><br />
+
+                                    <input type="submit" class="btn btn-primary" value="Submit" />
+                                    <span class="alert-danger">
+                                        @ViewBag.exms
+                                    </span>
+
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fas fa-align-left" style="margin:0px;padding:10px;background-color:crimson;color:white;"> </i>
+                                        </span>
+
+                                        <input id="Quantity" type="text" class="form-control" name="Quantity" placeholder="Quantity">
+
+                                    </div>
+                                    <br />
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class=" fas fa-envelope" style="margin:0px;padding:10px;background-color:crimson;color:white;"> </i>
+                                        </span>
+
+                                        <input id="Email" type="text" class="form-control" name="Email" placeholder="Email">
+
+                                    </div>
+                                    <br />
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fas fa-calendar" style="margin:0px;padding:10px;background-color:crimson;color:white;"> </i>
+                                        </span>
+
+                                        <input id="Date" type="date" class="form-control" name="Date" placeholder="Date">
+
+                                    </div>
+                                    <br />
+                                  
+                                    <br />
+
+
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,273 @@
+﻿@model IPagedList<Hombay.tbl_users>
+@using PagedList.Mvc;
+@using PagedList;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPageAdmin.cshtml";
+}
+
+@if (Session["UserName"] != null)
+{
+    @Session["UserName"].ToString()
+}
+
+<link href="~/content/PagedList.css" rel="stylesheet" />
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title text-uppercase font-medium font-14">Dashboard</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                  
+                   
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+    <style>
+        .box-title{
+            color:white;
+        }
+    </style>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Three charts -->
+        <!-- ============================================================== -->
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="white-box analytics-info" style="background-color:steelblue;"  >
+                    <h3 class="box-title">Total User</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedashs">
+                                <img src="~/images/050-add user.png" width="50" height="40" />
+                              
+                            </div>
+                        </li>
+                        <li class="ml-auto"><span class="counter text-white">@Session["totaluser"].ToString()</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="white-box analytics-info" style="background-color:mediumseagreen;">
+                    <h3 class="box-title">Total Companies(Servicer)</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash2s">
+                                <img src="~/images/lastmmax.png" width="50" height="40" />
+                            </div>
+                        </li>
+                        <li class="ml-auto"><span class="counter text-white">@Session["totalservicer"].ToString()</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="white-box analytics-info" style="background-color:teal;">
+                    <h3 class="box-title">landOwner Work Done</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash3s">
+                                <img src="~/images/089-task.png" width="50" height="40" />
+                            </div>
+                          
+                        </li>
+                        <li class="ml-auto">
+                            <span class="counter text-white">@Session["totalConstruction"].ToString()</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="white-box analytics-info"  style="background-color:crimson;">
+                    <h3 class="box-title">Total Buyer</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash4s">
+
+                                 <img src="~/images/alltask.png" width="50" height="40" />
+                            </div>
+                        </li>
+                        <li class="ml-auto"><span class="counter text-white">@Session["totalBuyer"].ToString()</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="white-box analytics-info"  style="background-color:darkslateblue;">
+                    <h3 class="box-title">Total LandOwner</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedashs">
+                                <img src="~/images/lastmtask.png " width="50" height="40" />
+                            </div>
+                        </li>
+                        <li class="ml-auto"><span class="counter text-white">@Session["totallandowner"].ToString()</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="white-box analytics-info" style="background-color:navy;">
+                    <h3 class="box-title">Total Seller</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash3s">
+                              
+                                <img src="~/images/033-Graphics design.png" width="50" height="40" />
+
+                            </div>
+                        </li>
+                        <li class="ml-auto">
+                            <span class="counter text-white">@Session["totalSeller"].ToString()</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="white-box analytics-info" style="background-color:chocolate;">
+                    <h3 class="box-title">Total Products</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash7">
+                                <img src="~/images/todayproject.png" width="50" height="40" />
+
+                            </div>
+                        </li>
+                        <li class="ml-auto"><span class="counter text-white">@Session["totalItem"].ToString()</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="white-box analytics-info" style="background-color:darkmagenta;">
+                    <h3 class="box-title">Total Bids</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash8">
+                              
+                                <img src="~/images/allpro.png" width="50" height="40" />
+                            </div>
+                        </li>
+                        <li class="ml-auto"><span class="counter text-white">@Session["totalBidding"].ToString()</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="white-box analytics-info" style="background-color:hotpink;">
+                    <h3 class="box-title">Total Complaints</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash9">
+                              
+                                <img src="~/images/027-magnifying glass.png" width="50" height="40" />
+                            </div>
+                        </li>
+                        <li class="ml-auto">
+                            <span class="counter text-white">@Session["totalcomplaint"].ToString()</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ============================================================== -->
+        <!-- RECENT SALES -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="white-box">
+
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.First().Name)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.First().Mobile)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.First().Email)
+                            </th>
+
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.First().Role)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.First().Organization)
+                            </th>
+                        
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.First().Image)
+                            </th>
+
+                          
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Mobile)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Role)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Organization)
+                                </td>
+                              
+
+                                <td>
+                                    <img src="@Url.Content(item.Image)" style="width:50px;height:50px;" />
+                                </td>
+
+                                
+                            </tr>
+                        }
+
+                    </table>
+
+                    @Html.PagedListPager(Model, i => Url.Action("Index", "Admin", new { i, search = Request.QueryString["search"] }))
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->

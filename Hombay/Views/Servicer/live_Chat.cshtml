@@ -1,0 +1,204 @@
+﻿@model IEnumerable<Hombay.tbl_Chat>
+@{
+    ViewBag.Title = "live_Chat";
+    Layout = "~/Views/_LayoutPageServicer.cshtml";
+}
+<body style="background-color:whitesmoke;">
+
+    <form method="post">
+        <div class="row">
+            <div class="col-lg-2 offset-2">
+                <div class="panel-heading" style="padding:12px;background-color:crimson;color:white;border-radius:4px;">Conversation</div>
+                @*@Html.DropDownList("Recevier_user", new SelectList(ViewBag.data, "Username", "Username", "plz select"), new { @class = "form-control" })*@
+                <table>
+                    @{
+
+
+                        if (ViewBag.data != null)
+                        {
+                            <ul style="background-color:white;" class="hov">
+                                @foreach (var person in ViewBag.data)
+                                {
+                                    <div Id="setid" class="cls" style="cursor:pointer;" value="@person.Username">
+                                        <img src="~/images/male.png" style="height:35px;width:35px;" />
+                                        @person.Username<p></p>
+                                    </div>
+                                }
+                            </ul>
+                        }
+                    }
+
+                </table>
+                <style>
+                    .btn:hover {
+                        color: mediumseagreen;
+                    }
+                </style>
+            </div>
+
+
+            <div style="width:63%">
+
+                <div class="panel-heading" style="padding: 12px; background-color: white; color: white; border-radius: 4px;">  <input type="text" style="border:none;" id="Receiver_user" readonly name="Receiver_user" placeholder="Message Box" /></div>
+
+
+                <div class="panel panel-primary">
+
+
+                    <div class="panel-body" style="border: 1px solid lightgray;background-color: white;padding:12px;">
+
+                        <table>
+                            @{
+
+
+                                if (Model != null)
+                                {
+                                    foreach (var item in Model)
+                                    {
+
+
+                                        <tr>
+
+
+                                            <td style="width:10%;color:crimson;font-weight:bold;padding:10px;">
+                                                <img src="~/images/male.png" style="height:30px;width:30px;" />
+                                                @Html.DisplayFor(modelItem => item.Sender_user)
+
+                                            </td>
+                                            <td style="width:65%;padding-top:20px;">
+
+                                                @Html.DisplayFor(modelItem => item.Message)
+                                                <br />
+                                                <p style="font-size:10px;">@Html.DisplayFor(modelItem => item.Time)</p>
+                                                <hr />
+                                            </td>
+
+
+
+                                        </tr>
+
+                                    }
+                                }
+                            }
+
+                        </table>
+
+
+                        <div class="input-group">
+
+                            <input type="text" class="form-control" name="Message" placeholder="Write Your Message Here" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" name="send" id="btn" type="submit">Send</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+        <script>
+            $('.cls').click(function () {
+
+                var value = this.innerText;
+                document.getElementById('Receiver_user').value = value;
+
+            });
+        </script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>
+
+            $("#send").on("click", function (eve) {
+                var emp = 1;
+                console.log(emp);
+                $.ajax({
+                    url: "@Url.Action("live_Chat")",
+                    type: "POST",
+                    dataType: 'application/json; charset=utf-8',
+                    data: emp,
+                    beforeSend: function () {
+                    },
+                    success: function (data, status, jqXHR) {
+
+                    },
+                    error: function (jqXHR, status, err) {
+
+                    },
+                    complete: function (jqXHR, status) {
+
+                    }
+                });
+            });
+
+            @*$(document).ready(function () {
+                $('#btn').click(function () {
+                    location.reload();
+                });
+            });
+
+        </script>
+        <script>
+            var id = document.getElementById('Recevier_users').innerHTML;
+            alert(id);
+            $('#send').click(function () {
+$.ajax({
+    type: "POST",
+    url: "@Url.Action("live_Chat")",
+    dataType: "json",
+    data: { data: id}, // change this
+    success: function (data) {
+    alert(data);
+    },
+    failure: function (errMsg) {
+    alert(errMsg);
+    }
+    });
+
+    });*@
+
+        </script>
+        <script>
+            @*$('#send').click(function () {
+ function live_Chat()
+    {
+        debugger;
+        var Student =
+        {
+            Name: 'jj',
+
+        }
+        ];
+     Student = JSON.stringify({ 'Student': Student });
+     alert(Student);
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("live_Chat")",
+            dataType: "json",
+            contentType: "application/json",
+            data: Student,
+            processData: true,
+            success: function (data) {
+                alert("Hi");
+                //alert(data);
+            },
+            error: function (xhr, ajaxOptions, error) {
+                alert(xhr.status);
+                alert("Error: " + xhr.responseText);
+                //alert(error);
+            }
+        });
+    }
+            });*@
+        </script>
+
+
+
+    </form>
+
+
+</body>

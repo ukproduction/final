@@ -1,0 +1,165 @@
+﻿@model Stripe.Checkout.Session
+@{
+    ViewBag.Title = "Add_to_Cart";
+    Layout = "~/Views/_LayoutPageServicer.cshtml";
+}
+
+<html>
+<head>
+
+
+</head>
+<body>
+    <div class="page-wrapper" style="min-height: 250px;">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb bg-white">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title text-uppercase font-medium font-14">Cart</h4>
+                </div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <div class="d-md-flex">
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="white-box">
+                        <h3 class="box-title">Continue to Cart </h3>
+
+                        <script src="https://js.stripe.com/v3/"></script>
+
+
+
+
+                        <table class="table">
+
+                            <tr>
+
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Price
+                                </th>
+
+                            </tr>
+
+
+                            <tr>
+                                <td>
+
+                                    @foreach (var person in ViewBag.Id)
+                                    {
+
+                                        @person.Id
+                                        <br />
+                                    }
+
+                                </td>
+                                <td>
+                                    @foreach (var person in ViewBag.Item_Name)
+                                    {
+
+                                        @person.Item_Name
+                                        <br />
+                                    }
+                                </td>
+
+                                <td>
+                                    @foreach (var person in ViewBag.price)
+                                    {
+
+                                        @person.price
+                                        <br />
+                                    }
+                                </td>
+
+
+
+
+                                <td>
+                                </td>
+                            </tr>
+
+
+                        </table>
+                        <div class="col-lg-2 offset-8" style="display:inline;"><h2 >
+    Total :@foreach (var person in ViewBag.price)
+    {@person.price}
+</h2>
+
+
+                           &nbsp; <a class="link btn btn-success" id="btnPay">PayNow</a>
+                            <style>
+                                a.link {
+                                    color: White;
+                                }
+
+                                    a.link:hover {
+                                        color: White;
+                                    }
+                            </style>
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                        <script>
+    var stripe = Stripe('pk_test_51HrzKFJWAkWQReajLesoTWvF3tGF0iOZCpDVpkwJrcUrhcLHf3jCriPbMvIG9dLLZKTFQnShS3RUis2koJ6i4qGJ00MgENXbP9');
+    var element = document.getElementById('btnPay');
+
+    element.addEventListener('click', function () {
+      stripe.redirectToCheckout({
+
+      sessionId: '@Model.Id'
+      }).then(function (result) {
+
+
+      });
+
+    });
+
+
+
+
+
+
+                        </script>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

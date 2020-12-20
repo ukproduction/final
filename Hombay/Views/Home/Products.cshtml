@@ -1,0 +1,79 @@
+﻿@model IPagedList<Hombay.tbl_items>
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+@using PagedList.Mvc;
+@using PagedList;
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+<div class="slider-area " style="margin-top:50px;">
+
+ 
+    <img src="~/images/Services/product.jpg" style="width:100%;height:450px;" />
+    <div class="centered">
+        Our Products
+    </div>
+
+
+
+    <style>
+
+        .centered {
+            position: absolute;
+            top: 30%;
+            font-size: 56px;
+            font-weight: bold;
+            font-family: Arial;
+            color: white;
+            left: 20%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</div>
+<div class="row">
+    <div class="container">
+        <div class="col-lg-7 offset-4" style="display:inline;margin-top:50px;">
+            @using (@Html.BeginForm())
+            {
+                <input type="text" name="search" class="fm form-control" style="width:220px;" placeholder="Search Name" /> <button type="submit" style="padding:5px;background-color:orangered;color:white;"class="fm"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+            }<h3><br /><br /></h3>
+        </div>
+        <style>
+            .fm {
+                display: inline-block;
+            }
+        </style>
+    </div>
+    <div class="col-md-12" style="margin-top:20px;">
+        <div class="white-box">
+            <h3 class="box-title"></h3>
+
+            <div class="container">
+
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                    <div class="col-lg-3" style="padding:10px;text-align:center;border-color:lightgray;border:1px solid lightgray;margin:0px;">
+
+                        <img src="@Url.Content(item.Image)" style="width:280px;height:250px;" />
+                        <h5></h5>
+                        <h5></h5>
+                        <h5 style="align-content:center;">Item: @Html.DisplayFor(modelItem => item.Name)</h5>
+                        <h5 style="align-content:center;color:red;font-weight:bold;">Rs: @Html.DisplayFor(modelItem => item.Item_price)/-</h5>
+                        <button>
+                            <i class="fa fa-shopping-cart" aria-hidden="true">
+
+                                @Html.ActionLink(" Cart Item", "LoginBuyer", "Buyer")
+                            </i>
+                        </button>
+                    </div>
+                    }
+                </div>
+
+                @Html.PagedListPager(Model, i => Url.Action("Products", "Home", new { i, search = Request.QueryString["search"] }))
+            </div>
+        </div>
+    </div>
+</div>

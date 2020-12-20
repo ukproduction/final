@@ -1,0 +1,214 @@
+﻿@model Hombay.User_Bidding
+
+@{
+    ViewBag.Title = "Approve";
+    Layout = "~/Views/_LayoutPage3.cshtml";
+}
+
+
+<div class="page-wrapper" style="min-height: 250px;">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title text-uppercase font-medium font-14">Approve Page</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="white-box">
+                    <h3 class="box-title">Search List</h3>
+                    @if (TempData["Success"] != null)
+                    {<div class="container">
+                            <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+                        </div>
+                    }
+                    @using (Html.BeginForm())
+                    {
+                        <div class="row">
+                            <div class="col-lg-4 offset-2">
+
+
+
+                                @*//  @Html.AntiForgeryToken()*@
+
+
+
+
+                                <div class="form-horizontal">
+
+
+
+
+                                    <input id="Id" type="text" class="form-control" name="Id" style="display:none;" value="@Model.Id" />
+
+
+
+
+                                    <div class="input-group">
+
+
+                                        <input id="Seller_Id" type="text" class="form-control" style="display:none;" name="User_Id" value="@Model.User_Id" />
+
+
+                                    </div>
+
+                                    Name
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fas fa-bars" style="margin:0px;padding:10px;background-color:orangered;color:white;"> </i>
+                                        </span>
+
+                                        <input id="Name" type="text" class="form-control" name="Item_Name" value="@Model.Item_Name" />
+
+
+
+                                    </div>
+
+                                    Quantity
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fas fa-bars" style="margin:0px;padding:10px;background-color:orangered;color:white;"> </i>
+                                        </span>
+
+                                        <input id="Quantity" type="text" class="form-control" name="Quantity" value="@Model.Quantity" />
+
+
+                                    </div>
+
+                                    Date from
+                                    <div class="input-group">
+
+                                        <span class="input-group-addon">
+                                            <i class="fas fa-calendar" style="margin:0px;padding:10px;background-color:orangered;color:white;"> </i>
+                                        </span>
+                                        <input id="Date" type="text" class="form-control" name="Date_from" value="@Model.Date_from" />
+
+
+
+                                    </div>
+                                    Date to
+                                    <div class="input-group">
+
+                                        <span class="input-group-addon">
+                                            <i class="fas fa-calendar" style="margin:0px;padding:10px;background-color:orangered;color:white;"> </i>
+                                        </span>
+                                        <input id="Date" type="text" class="form-control" name="Date_to" value="@Model.Date_to" />
+
+
+
+                                    </div>
+                                    Price
+                                    <div class="input-group">
+
+                                        <span class="input-group-addon">
+                                            <i class="fas fa-check" style="margin:0px;padding:10px;background-color:orangered;color:white;"> </i>
+                                        </span>
+
+                                        <input id="price" type="text" class="form-control" name="price" value="@Model.price" />
+                                    </div>
+                                    <br />
+                                    <div class="input-group">
+
+                                        <input type="submit" value="Save" class="btn btn-primary" />
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+
+
+
+                                Bid Amount
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fas fa-check" style="margin:0px;padding:10px;background-color:orangered;color:white;"> </i>
+                                    </span>
+                                    <input id="Bid_amount" type="text" class="form-control" name="Bid_amount" value="@Model.Bid_amount">
+
+
+
+                                </div>
+
+                                Item ID
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fas fa-check" style="        margin: 0px;
+        padding: 10px;
+        background-color: orangered;
+        color: white;"> </i>
+                                    </span>
+                                    <input id="Item_Id" type="text" class="form-control" name="Item_Id" value="@Model.Item_Id">
+
+
+                                </div>
+
+                                Status
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fas fa-check" style="margin:0px;padding:10px;background-color:orangered;color:white;"> </i>
+                                    </span>
+
+
+                                    <select name="Approve" id="Approve" class="form-control">
+                                        <option value="@Model.Approve" selected>@Model.Approve</option>
+                                        <option value="Approve">Approve</option>
+                                        <option value="Payment">Payment</option>
+                                        <option value="Rejected">Reject</option>
+
+                                    </select>
+
+
+
+
+
+
+
+
+                                </div>
+
+                                <div class="input-group">
+
+
+                                    <img src="@Url.Content(Model.Image)" class="img-responsive" id="UserImage" style="width:250px;height:150px;" />
+
+                                    @{TempData["Data1"] = @Url.Content(Model.Image); }
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                    }
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
